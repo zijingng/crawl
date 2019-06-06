@@ -359,10 +359,22 @@ endif
 endif
 
 ifndef TILES
+ifdef HEADLESS
+OBJECTS += libheadless.o
+$(shell $(RM) libunix.o) # super hacky way of ensuring that swapping between
+                         # headless and non-headless modes retriggers link,
+                         # since otherwise this doesn't change the CFLAGS. Is
+                         # there a better way to do this?
+# headless mode can be built without ncurses, but this way allows rebuilding
+# without changing CFLAGS, and so only swapping one .o for another.
+#NO_NCURSES = YesPlease
+else
 ifdef NEED_LIBW32C
 OBJECTS += libw32c.o
 else
 OBJECTS += libunix.o
+$(shell $(RM) libheadless.o) # see hack note above
+endif
 endif
 endif
 
@@ -1477,7 +1489,7 @@ endif
 clean: clean-rltiles clean-webserver clean-android clean-monster
 	+$(MAKE) -C $(UTIL) clean
 	$(RM) $(GAME) $(GAME).exe $(GENERATED_FILES) $(EXTRA_OBJECTS) libw32c.o\
-	    libunix.o $(ALL_OBJECTS) $(ALL_OBJECTS:.o=.d) *.ixx  \
+	    libunix.o libheadless.o $(ALL_OBJECTS) $(ALL_OBJECTS:.o=.d) *.ixx  \
 	    .contrib-libs .cflags AppHdr.h.gch AppHdr.h.d util/fake_pty \
             rltiles/tiledef-unrand.cc
 	$(RM) -r build-win
