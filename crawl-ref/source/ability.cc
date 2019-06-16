@@ -61,6 +61,7 @@
 #include "prompt.h"
 #include "religion.h"
 #include "skills.h"
+#include "spl-book.h"
 #include "spl-cast.h"
 #include "spl-clouds.h"
 #include "spl-damage.h"
@@ -438,10 +439,12 @@ static const ability_def Ability_List[] =
       0, 0, 0, 0, {fail_basis::invo}, abflag::instant | abflag::starve_ok },
     { ABIL_SIF_MUNA_STOP_DIVINE_ENERGY, "Stop Divine Energy",
       0, 0, 0, 0, {fail_basis::invo}, abflag::instant | abflag::starve_ok },
-    { ABIL_SIF_MUNA_FORGET_SPELL, "Forget Spell",
-      0, 0, 0, 8, {fail_basis::invo}, abflag::none },
     { ABIL_SIF_MUNA_CHANNEL_ENERGY, "Channel Magic",
       0, 0, 200, 2, {fail_basis::invo, 60, 4, 25}, abflag::none },
+    { ABIL_SIF_MUNA_FORGET_SPELL, "Forget Spell",
+      0, 0, 0, 8, {fail_basis::invo}, abflag::none },
+    { ABIL_SIF_MUNA_DIVINE_KNOWLEDGE, "Divine Knowledge",
+      0, 0, 0, 12, {fail_basis::invo, 80, 4, 25}, abflag::none },
 
     // Trog
     { ABIL_TROG_BERSERK, "Berserk",
@@ -1564,6 +1567,9 @@ static bool _check_ability_possible(const ability_def& abil, bool quiet = false)
         }
         return true;
 
+    case ABIL_SIF_MUNA_DIVINE_KNOWLEDGE:
+        return can_cast_spells();
+
     case ABIL_ASHENZARI_TRANSFER_KNOWLEDGE:
         if (!trainable_skills(true))
         {
@@ -2608,6 +2614,13 @@ static spret _do_ability(const ability_def& abil, bool fail)
         fail_check();
         you.increase_duration(DUR_CHANNEL_ENERGY,
             4 + random2avg(you.skill_rdiv(SK_INVOCATIONS, 2, 3), 2), 100);
+        break;
+    }
+
+    case ABIL_SIF_MUNA_DIVINE_KNOWLEDGE:
+    {
+        fail_check();
+        return divine_knowledge();
         break;
     }
 

@@ -366,6 +366,7 @@ public:
     // -------------------
     unsigned short prev_targ;
     coord_def      prev_grd_targ;
+    bool           divine_knowledge;
 
     // Coordinates of last travel target; note that this is never used by
     // travel itself, only by the level-map to remember the last travel target.
