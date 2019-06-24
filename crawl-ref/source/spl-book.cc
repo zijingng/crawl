@@ -1041,7 +1041,7 @@ bool book_has_title(const item_def &book)
            && book.props[BOOK_TITLED_KEY].get_bool() == true;
 }
 
-spret divine_knowledge()
+spret divine_knowledge(bool fail)
 {
     unwind_var<bool> dk(you.divine_knowledge, true);
 
@@ -1069,6 +1069,9 @@ spret divine_knowledge()
         return spret::abort;
 
     ASSERT(is_valid_spell(spell));
+
+    if (fail)
+        return spret::fail;
 
     if (cast_a_spell(false, spell))
         return spret::success;

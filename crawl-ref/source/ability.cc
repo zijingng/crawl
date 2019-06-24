@@ -2597,8 +2597,7 @@ static spret _do_ability(const ability_def& abil, bool fail)
 
     case ABIL_SIF_MUNA_DIVINE_KNOWLEDGE:
     {
-        fail_check();
-        return divine_knowledge();
+        return divine_knowledge(fail);
         break;
     }
 
