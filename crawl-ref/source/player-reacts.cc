@@ -832,9 +832,6 @@ static void _decrement_durations()
     extract_manticore_spikes("You carefully extract the barbed spikes from "
                              "your body.");
 
-    if (!env.sunlight.empty())
-        process_sunlights();
-
     if (!you.duration[DUR_ANCESTOR_DELAY]
         && in_good_standing(GOD_HEPLIAKLQANA)
         && hepliaklqana_ancestor() == MID_NOBODY)
