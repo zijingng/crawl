@@ -253,6 +253,9 @@ enum class passive_t
     wu_jian_lunge,
     wu_jian_whirlwind,
     wu_jian_wall_jump,
+
+    /// Fedhas vines
+    vines,
 };
 
 enum ru_interference

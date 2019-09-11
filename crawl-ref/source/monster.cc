@@ -5723,6 +5723,9 @@ int monster::action_energy(energy_use_type et) const
     if (floundering())
         move_cost += 6;
 
+    if (vined())
+        move_cost += 4;
+
     // Never reduce the cost to zero
     return max(move_cost, 1);
 }

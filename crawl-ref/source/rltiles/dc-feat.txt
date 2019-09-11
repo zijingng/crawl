@@ -658,6 +658,7 @@ effect/umbra0 UMBRA
 effect/umbra1
 effect/umbra2
 effect/umbra3
+effect/vines VINES
 effect/orb_glow0 ORB_GLOW
 effect/orb_glow1
 effect/quad_glow QUAD_GLOW

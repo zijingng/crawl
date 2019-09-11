@@ -3144,6 +3144,9 @@ static vector<string> _get_monster_desc_vector(const monster_info& mi)
     if (mi.is(MB_UMBRAED))
         descs.emplace_back("umbra");
 
+    if (mi.is(MB_VINED))
+        descs.emplace_back("slowed by vines");
+
     if (mi.is(MB_POSSESSABLE))
         descs.emplace_back("possessable"); // FIXME: better adjective
     else if (mi.is(MB_ENSLAVED))
@@ -3497,6 +3500,8 @@ static bool _print_cloud_desc(const coord_def where)
         areas.emplace_back("is covered in magical glow");
     if (disjunction_haloed(where))
         areas.emplace_back("is bathed in translocational energy");
+    if (vined(where))
+        areas.emplace_back("is covered in vines");
     if (!areas.empty())
     {
         mprf("This square %s.",

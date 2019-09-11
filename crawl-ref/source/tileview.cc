@@ -1422,6 +1422,8 @@ void tile_apply_properties(const coord_def &gc, packed_cell &cell)
         cell.halo = HALO_UMBRA;
     else if (mc.flags & MAP_HALOED)
         cell.halo = HALO_RANGE;
+    else if (mc.flags & MAP_VINES)
+        cell.halo = HALO_VINES;
     else
         cell.halo = HALO_NONE;
 

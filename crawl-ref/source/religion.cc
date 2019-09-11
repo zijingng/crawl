@@ -588,6 +588,7 @@ void dec_penance(god_type god, int val)
     {
         const bool had_halo = have_passive(passive_t::halo);
         const bool had_umbra = have_passive(passive_t::umbra);
+        const bool had_vines = have_passive(passive_t::vines);
 
         you.penance[god] = 0;
 
@@ -621,6 +622,11 @@ void dec_penance(god_type god, int val)
             if (!had_umbra && have_passive(passive_t::umbra))
             {
                 mprf(MSGCH_GOD, "Your aura of darkness returns!");
+                invalidate_agrid(true);
+            }
+            if (!had_vines && have_passive(passive_t::vines))
+            {
+                mprf(MSGCH_GOD, "Your vines return!");
                 invalidate_agrid(true);
             }
             if (have_passive(passive_t::sinv))
@@ -745,6 +751,7 @@ static void _inc_penance(god_type god, int val)
 
         const bool had_halo = have_passive(passive_t::halo);
         const bool had_umbra = have_passive(passive_t::umbra);
+        const bool had_vines = have_passive(passive_t::vines);
 
         you.penance[god] += val;
         you.penance[god] = min((uint8_t)MAX_PENANCE, you.penance[god]);
@@ -757,6 +764,11 @@ static void _inc_penance(god_type god, int val)
         if (had_umbra && !have_passive(passive_t::umbra))
         {
             mprf(MSGCH_GOD, god, "Your aura of darkness fades away.");
+            invalidate_agrid();
+        }
+        if (had_vines && !have_passive(passive_t::vines))
+        {
+            mprf(MSGCH_GOD, god, "Your vines recede.");
             invalidate_agrid();
         }
 
@@ -2401,6 +2413,8 @@ static void _gain_piety_point()
             mprf(MSGCH_GOD, "A divine halo surrounds you!");
         if (rank == rank_for_passive(passive_t::umbra))
             mprf(MSGCH_GOD, "You are shrouded in an aura of darkness!");
+        if (rank == rank_for_passive(passive_t::vines))
+            mprf(MSGCH_GOD, "You are surrounded by vines!");
         if (rank == rank_for_passive(passive_t::sinv))
             autotoggle_autopickup(false);
         if (rank == rank_for_passive(passive_t::clarity))
@@ -2455,9 +2469,11 @@ static void _gain_piety_point()
         you.redraw_armour_class = true;
     }
 
-    if (have_passive(passive_t::halo) || have_passive(passive_t::umbra))
+    if (have_passive(passive_t::halo)
+        || have_passive(passive_t::umbra)
+        || have_passive(passive_t::vines))
     {
-        // Piety change affects halo / umbra radius.
+        // Piety change affects halo/umbra/vines radius.
         invalidate_agrid(true);
     }
 
@@ -2604,9 +2620,10 @@ void lose_piety(int pgn)
     }
 
     if (will_have_passive(passive_t::halo)
-        || will_have_passive(passive_t::umbra))
+        || will_have_passive(passive_t::umbra)
+        || will_have_passive(passive_t::vines))
     {
-        // Piety change affects halo / umbra radius.
+        // Piety change affects halo/umbra/vines radius.
         invalidate_agrid(true);
     }
 }
@@ -2709,6 +2726,7 @@ void excommunication(bool voluntary, god_type new_god)
 
     const bool had_halo       = have_passive(passive_t::halo);
     const bool had_umbra      = have_passive(passive_t::umbra);
+    const bool had_vines      = have_passive(passive_t::vines);
     const bool had_water_walk = have_passive(passive_t::water_walk);
     const bool had_stat_boost = have_passive(passive_t::stat_boost);
     const int  old_piety      = you.piety;
@@ -2778,6 +2796,11 @@ void excommunication(bool voluntary, god_type new_god)
     if (had_umbra)
     {
         mprf(MSGCH_GOD, old_god, "Your aura of darkness fades away.");
+        invalidate_agrid(true);
+    }
+    if (had_vines)
+    {
+        mprf(MSGCH_GOD, old_god, "Your vines recede.");
         invalidate_agrid(true);
     }
     // You might have lost water walking at a bad time...

@@ -566,6 +566,8 @@ monster_info::monster_info(const monster* m, int milev)
         mb.set(MB_HALOED);
     if (!m->haloed() && m->umbraed())
         mb.set(MB_UMBRAED);
+    if (m->vined())
+        mb.set(MB_VINED);
     if (mons_looks_stabbable(*m))
         mb.set(MB_STABBABLE);
     if (mons_looks_distracted(*m))

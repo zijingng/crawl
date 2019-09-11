@@ -34,6 +34,7 @@
 #if TAG_MAJOR_VERSION == 34
 #define MAP_HOT           0x10000000
 #endif
+#define MAP_VINES         0x20000000
 
 struct cloud_info
 {

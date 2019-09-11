@@ -683,6 +683,8 @@ function ($, view_data, main, tileinfo_player, icons, dngn, enums,
                         this.draw_dngn(dngn.HALO_RANGE, x, y);
                     if (cell.halo == enums.HALO_UMBRA)
                         this.draw_dngn(dngn.UMBRA, x, y);
+                    if (cell.halo == enums.HALO_VINES)
+                        this.draw_dngn(dngn.VINES, x, y);
                     if (cell.orb_glow)
                         this.draw_dngn(dngn.ORB_GLOW + cell.orb_glow - 1, x, y);
                     if (cell.quad_glow)

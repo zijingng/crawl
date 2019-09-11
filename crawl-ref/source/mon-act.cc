@@ -1160,7 +1160,7 @@ bool handle_throw(monster* mons, bolt & beem, bool teleport, bool check_only)
 
     const bool archer = mons_class_flag(mons->type, M_DONT_MELEE);
 
-    const bool liquefied = mons->liquefied_ground();
+    const bool ground_slow = mons->liquefied_ground() || mons->vined();
 
     // Don't allow offscreen throwing for now.
     if (mons->foe == MHITYOU && !you.see_cell(mons->pos()))
@@ -1175,8 +1175,8 @@ bool handle_throw(monster* mons, bolt & beem, bool teleport, bool check_only)
         // If adjacent, archers should always shoot (otherwise they would
         // try to melee). Hence the else if below.
     }
-    else if (!teleport && ((liquefied && !archer && one_chance_in(9))
-                           || (!liquefied && one_chance_in(archer ? 9 : 5))))
+    else if (!teleport && ((ground_slow && !archer && one_chance_in(9))
+                           || (!ground_slow && one_chance_in(archer ? 9 : 5))))
     {
         // Highly-specialised archers are more likely to shoot than talk.
         // If we're standing on liquefied ground, try to stand and fire!

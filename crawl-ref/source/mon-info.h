@@ -175,6 +175,7 @@ enum monster_info_flags
     MB_PINNED,
     MB_VILE_CLUTCH,
     MB_HIGHLIGHTED_SUMMONER,
+    MB_VINED,
     NUM_MB_FLAGS
 };
 

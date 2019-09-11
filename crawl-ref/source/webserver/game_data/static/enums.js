@@ -49,6 +49,7 @@ define(function () {
     exports.HALO_NONE = 0;
     exports.HALO_RANGE = 1;
     exports.HALO_UMBRA = 2;
+    exports.HALO_VINES = 3;
 
     // equipment_type
     exports.equip = {};

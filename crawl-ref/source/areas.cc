@@ -40,6 +40,7 @@ enum class areaprop
     quad          = (1 << 8),
     disjunction   = (1 << 9),
     soul_aura     = (1 << 10),
+    vines         = (1 << 11),
 };
 DEF_BITFIELD(areaprops, areaprop);
 
@@ -82,7 +83,8 @@ void areas_actor_moved(const actor* act, const coord_def& oldpos)
     if (act->alive() &&
         (you.entering_level
          || act->halo_radius() > -1 || act->silence_radius() > -1
-         || act->liquefying_radius() > -1 || act->umbra_radius() > -1))
+         || act->liquefying_radius() > -1 || act->umbra_radius() > -1
+         || act->vines_radius() > -1))
     {
         // Not necessarily new, but certainly potentially interesting.
         invalidate_agrid(true);
@@ -133,6 +135,15 @@ static void _actor_areas(actor *a)
 
         for (radius_iterator ri(a->pos(), r, C_SQUARE, LOS_DEFAULT); ri; ++ri)
             _set_agrid_flag(*ri, areaprop::umbra);
+        no_areas = false;
+    }
+
+    if ((r = a->vines_radius()) >= 0)
+    {
+        _agrid_centres.emplace_back(area_centre_type::vines, a->pos(), r);
+
+        for (radius_iterator ri(a->pos(), r, C_SQUARE, LOS_DEFAULT); ri; ++ri)
+            _set_agrid_flag(*ri, areaprop::vines);
         no_areas = false;
     }
 }
@@ -714,4 +725,46 @@ int monster::umbra_radius() const
     default:
         return -1;
     }
+}
+
+/////////////
+// Vines
+//
+
+bool vined(const coord_def& p)
+{
+    if (!map_bounds(p))
+        return false;
+    if (!_agrid_valid)
+        _update_agrid();
+
+    return _check_agrid_flag(p, areaprop::vines);
+}
+
+// Whether actor is in the middle of vines.
+bool actor::vined() const
+{
+    return ::vined(pos())
+           && ground_level() && !is_insubstantial()
+           && !is_stationary();
+}
+
+
+int monster::vines_radius() const
+{
+    return -1;
+}
+
+int player::vines_radius() const
+{
+    int size = -1;
+
+    if (have_passive(passive_t::vines))
+    {
+        // The cap is reached at piety 100 = ****..
+        size = min((int)piety, piety_breakpoint(3)) * you.normal_vision
+                                                    / piety_breakpoint(3);
+    }
+
+    return size;
 }

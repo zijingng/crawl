@@ -311,6 +311,8 @@ static const vector<god_passive> god_passives[] =
               "can NOW safely fire through allied plants" },
         {  0, passive_t::friendly_plants,
               "Allied plants are NOW friendly towards you" },
+        // XXX: Disabled until we can work out an acceptable design.
+        //{  0, passive_t::vines, "are NOW surrounded by vines" },
     },
 
     // Cheibriados

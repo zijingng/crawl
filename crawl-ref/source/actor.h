@@ -367,6 +367,8 @@ public:
     virtual bool haloed() const;
     // Within an umbra?
     virtual bool umbraed() const;
+    // Within vines?
+    virtual bool vined() const;
     // Halo radius.
     virtual int halo_radius() const = 0;
     // Silence radius.
@@ -374,6 +376,7 @@ public:
     // Liquefying radius.
     virtual int liquefying_radius() const = 0;
     virtual int umbra_radius() const = 0;
+    virtual int vines_radius() const = 0;
 
     virtual bool petrifying() const = 0;
     virtual bool petrified() const = 0;

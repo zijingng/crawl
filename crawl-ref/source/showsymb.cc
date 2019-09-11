@@ -117,6 +117,8 @@ static unsigned short _cell_feat_show_colour(const map_cell& cell,
                 colour = LIGHTCYAN;
             else if (cell.flags & MAP_UMBRAED)
                 colour = fdef.colour(); // Cancels out!
+            else if (cell.flags & MAP_VINES)
+                colour = RED;
             else
                 colour = YELLOW;
         }
@@ -124,11 +126,20 @@ static unsigned short _cell_feat_show_colour(const map_cell& cell,
         {
             if (cell.flags & MAP_SILENCED)
                 colour = BLUE; // Silence gets darker
+            else if (cell.flags & MAP_VINES)
+                colour = GREEN; // Vines get darker
             else
                 colour = MAGENTA; // If no holy or silence
         }
+        else if (cell.flags & MAP_VINES)
+        {
+            if (cell.flags & MAP_SILENCED)
+                colour = LIGHTBLUE;
+            else
+                colour = LIGHTGREEN;
+        }
         else if (cell.flags & MAP_SILENCED)
-            colour = CYAN; // Silence but no holy/unholy
+            colour = CYAN; // Silence but no holy/unholy/vines
         else if (cell.flags & MAP_ORB_HALOED)
             colour = ETC_ORB_GLOW;
         else if (cell.flags & MAP_QUAD_HALOED)
