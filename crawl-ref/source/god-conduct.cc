@@ -57,15 +57,15 @@ static const char *conducts[] =
 {
     "",
     "Evil", "Holy", "Attack Holy", "Attack Neutral", "Attack Friend",
-    "Friend Died", "Kill Living", "Kill Undead", "Kill Demon",
-    "Kill Natural Evil", "Kill Unclean", "Kill Chaotic", "Kill Wizard",
-    "Kill Priest", "Kill Holy", "Kill Fast", "Banishment", "Spell Memorise",
-    "Spell Cast", "Spell Practise", "Cannibalism", "Eat Souled Being",
-    "Deliberate Mutation", "Cause Glowing", "Use Unclean", "Use Chaos",
-    "Desecrate Orcish Remains", "Kill Slime", "Kill Plant", "Was Hasty",
-    "Corpse Violation", "Souled Friend Died", "Attack In Sanctuary",
-    "Kill Artificial", "Exploration", "Desecrate Holy Remains", "Seen Monster",
-    "Sacrificed Love", "Channel", "Hurt Foe",
+    "Kill Living", "Kill Undead", "Kill Demon", "Kill Natural Evil",
+    "Kill Unclean", "Kill Chaotic", "Kill Wizard", "Kill Priest", "Kill Holy",
+    "Kill Fast", "Banishment", "Spell Memorise", "Spell Cast",
+    "Spell Practise", "Cannibalism", "Eat Souled Being", "Deliberate Mutation",
+    "Cause Glowing", "Use Unclean", "Use Chaos", "Desecrate Orcish Remains",
+    "Kill Slime", "Kill Plant", "Was Hasty", "Corpse Violation",
+    "Attack In Sanctuary", "Kill Artificial", "Exploration",
+    "Desecrate Holy Remains", "Seen Monster", "Sacrificed Love", "Channel",
+    "Hurt Foe",
 };
 COMPILE_CHECK(ARRAYSZ(conducts) == NUM_CONDUCTS);
 
@@ -257,20 +257,6 @@ static dislike_response _on_attack_friend(const char* desc)
     };
 }
 
-/// Fedhas's response to a friend(ly plant) dying.
-static dislike_response _on_fedhas_friend_death(const char* desc)
-{
-    return
-    {
-        desc, false,
-        1, 0, nullptr, nullptr, [] (const monster* victim) -> bool {
-            // ballistomycetes are penalized separately.
-            return victim && fedhas_protects(*victim)
-            && victim->mons_species() != MONS_BALLISTOMYCETE;
-        }
-    };
-}
-
 typedef map<conduct_type, dislike_response> peeve_map;
 
 /// a per-god map of conducts to that god's angry reaction to those conducts.
@@ -426,9 +412,6 @@ static peeve_map divine_peeves[] =
             1, 0
         } },
         { DID_ATTACK_FRIEND, _on_attack_friend(nullptr) },
-
-        { DID_FRIEND_DIED, _on_fedhas_friend_death("allied flora die") },
-        { DID_SOULED_FRIEND_DIED, _on_fedhas_friend_death(nullptr) },
     },
     // GOD_CHEIBRIADOS,
     {
