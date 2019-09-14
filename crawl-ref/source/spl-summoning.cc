@@ -3531,7 +3531,7 @@ static void _overgrow_wall(const coord_def &pos)
     const string what = feature_description(feat, NUM_TRAPS, "", DESC_THE,
             false);
 
-    if (const monster* const mons = monster_at(pos))
+    if (monster_at(pos))
     {
         mprf("Something unseen blocks growth in %s.", what.c_str());
         return;
