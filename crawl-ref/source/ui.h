@@ -1090,6 +1090,7 @@ Widget* get_focused_widget();
 
 #ifdef USE_TILE_WEB
 void recv_ui_state_change(const JsonNode *json);
+int layout_generation_id();
 #endif
 
 // XXX: this is a hack used to ensure that when switching to a
