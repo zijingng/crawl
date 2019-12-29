@@ -302,6 +302,7 @@ fontwrapper-ft.o
 
 TEST_OBJECTS = \
 catch2-tests/test_english.o \
+catch2-tests/test_format.o \
 catch2-tests/test_species.o
 
 WEBTILES_OBJECTS = \
