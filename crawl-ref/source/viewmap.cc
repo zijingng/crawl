@@ -692,6 +692,8 @@ bool show_map(level_pos &lpos,
         unwind_var<coord_def> vlos2(crawl_view.vlos2);
         crawl_view.calc_vlos();
 
+        unwind_bool block_rendering(ui::block_rendering, true);
+
         while (map_alive)
         {
             if (lpos.id != level_id::current())

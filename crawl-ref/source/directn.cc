@@ -3719,6 +3719,7 @@ int targeting_behaviour::get_key()
 
     flush_prev_message();
     msgwin_got_input();
+    unwind_bool block_rendering(ui::block_rendering, true);
     return unmangle_direction_keys(getchm(KMC_TARGETING), KMC_TARGETING,
                                    false);
 }
