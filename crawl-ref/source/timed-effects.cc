@@ -1188,6 +1188,12 @@ void timeout_terrain_changes(int duration, bool force)
             marker->duration = 0;
         }
 
+        if (marker->change_type == TERRAIN_CHANGE_RAMPARTS
+            && !you.see_cell(marker->pos))
+        {
+            marker->duration = 0;
+        }
+
         monster* mon_src = monster_by_mid(marker->mon_num);
         if (marker->duration <= 0
             || (marker->mon_num != 0

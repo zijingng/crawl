@@ -3355,3 +3355,38 @@ void actor_apply_toxic_bog(actor * act)
                   KILLED_BY_POISON, "", "toxic bog");
     }
 }
+
+/**
+ * Cast Frozen Ramparts
+ *
+ * @param caster The caster.
+ * @param pow    The spell power.
+ * @param fail   Did this spell miscast? If true, abort the cast.
+ * @return       spret::fail if one could be found but we miscast, and
+ *               spret::success if the spell was successfully cast.
+*/
+spret cast_frozen_ramparts(int pow, bool fail)
+{
+    const int duration = random_range(40 + pow, 80 + pow * 3 / 2);
+
+    fail_check();
+
+    for (distance_iterator di(you.pos(), false, false, 3); di; ++di)
+    {
+        const dungeon_feature_type feat = grd(*di);
+        if (you.see_cell(*di)
+            && feat_is_wall(feat)
+            && feat_is_diggable(feat))
+        {
+            temp_change_terrain(*di, DNGN_ICY_WALL, duration,
+                    TERRAIN_CHANGE_GENERIC);
+        }
+    }
+
+    mpr("The walls around you are covered in myriad of icicles.");
+    noisy(spell_effect_noise(SPELL_FROZEN_RAMPARTS), you.pos());
+
+    you.duration[DUR_FROZEN_RAMPARTS] = duration;
+
+    return spret::success;
+}
