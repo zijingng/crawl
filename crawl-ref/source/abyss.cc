@@ -1163,6 +1163,7 @@ static cloud_type _cloud_from_feat(const dungeon_feature_type &ft)
         case DNGN_SLIMY_WALL:
         case DNGN_STONE_WALL:
         case DNGN_PERMAROCK_WALL:
+        case DNGN_ICY_WALL:
             return random_choose(CLOUD_BLUE_SMOKE, CLOUD_PURPLE_SMOKE);
         case DNGN_CLEAR_ROCK_WALL:
         case DNGN_CLEAR_STONE_WALL:

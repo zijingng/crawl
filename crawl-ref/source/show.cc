@@ -169,6 +169,12 @@ static void _update_feat_at(const coord_def &gp)
     if (env.level_state & LSTATE_SLIMY_WALL && slime_wall_neighbour(gp))
         env.map_knowledge(gp).flags |= MAP_CORRODING;
 
+    if (env.level_state & LSTATE_ICY_WALL
+        && count_adjacent_walls(gp, DNGN_ICY_WALL))
+    {
+        env.map_knowledge(gp).flags |= MAP_FREEZING;
+    }
+
     if (emphasise(gp))
         env.map_knowledge(gp).flags |= MAP_EMPHASIZE;
 

@@ -31,6 +31,9 @@ enum dungeon_feature_type
     DNGN_CRYSTAL_WALL,
     DNGN_ROCK_WALL,
     DNGN_SLIMY_WALL,
+#if TAG_MAJOR_VERSION > 34
+    DNGN_ICY_WALL,
+#endif
     DNGN_STONE_WALL,
     DNGN_PERMAROCK_WALL,               // for undiggable walls
     DNGN_CLEAR_ROCK_WALL,              // transparent walls
@@ -288,6 +291,7 @@ enum dungeon_feature_type
     DNGN_RUNED_CLEAR_DOOR,
     DNGN_SEALED_CLEAR_DOOR,
     DNGN_TOXIC_BOG,
+    DNGN_ICY_WALL,
 #endif
 
     NUM_FEATURES

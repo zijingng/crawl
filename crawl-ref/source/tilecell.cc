@@ -5,6 +5,8 @@
 #include "colour.h"
 #include "coord.h"
 #include "coordit.h"
+#include "env.h"
+#include "level-state-type.h"
 #include "terrain.h"
 #include "tile-flags.h"
 #include "tiledef-dngn.h"
@@ -480,6 +482,13 @@ static bool _is_seen_slimy_wall(const coord_def& gc, crawl_view_buffer &vbuf)
     return feat == DNGN_SLIMY_WALL;
 }
 
+static bool _is_seen_icy_wall(const coord_def& gc, crawl_view_buffer &vbuf)
+{
+    const auto feat = _safe_feat(gc, vbuf);
+
+    return feat == DNGN_ICY_WALL;
+}
+
 void pack_cell_overlays(const coord_def &gc, crawl_view_buffer &vbuf)
 {
     auto& cell = vbuf(gc).tile;
@@ -494,11 +503,17 @@ void pack_cell_overlays(const coord_def &gc, crawl_view_buffer &vbuf)
     else
         _pack_default_waves(gc, vbuf);
 
-    if (player_in_branch(BRANCH_SLIME) &&
-        cell.map_knowledge.feat() != DNGN_SLIMY_WALL)
+    if (env.level_state & LSTATE_SLIMY_WALL
+        && cell.map_knowledge.feat() != DNGN_SLIMY_WALL)
     {
         _add_directional_overlays(gc, vbuf, TILE_SLIME_OVERLAY,
                                   _is_seen_slimy_wall);
+    }
+    else if (env.level_state & LSTATE_ICY_WALL
+             && cell.map_knowledge.feat() != DNGN_ICY_WALL)
+    {
+        _add_directional_overlays(gc, vbuf, TILE_ICE_OVERLAY,
+                                  _is_seen_icy_wall);
     }
     else
     {

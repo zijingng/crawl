@@ -855,6 +855,8 @@ void bolt::digging_wall_effect()
             }
             else if (feat == DNGN_SLIMY_WALL)
                 wall = "slime";
+            else if (feat == DNGN_ICY_WALL)
+                wall = "ice";
             else if (player_in_branch(BRANCH_PANDEMONIUM))
                 wall = "weird stuff";
             else

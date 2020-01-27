@@ -219,6 +219,12 @@ A slime covered rock wall
 
 A rock wall coated with bright green slime. It is acidic to the touch.
 %%%%
+An ice covered rock wall
+
+A rock wall bristling with sharp, enchanted icicles. The ice will release
+explosively when a victim wanders nearby, damaging and encasing them in a
+frozen shroud that impedes movement.
+%%%%
 A metal wall
 
 A wall of bluish-grey metal. As every dungeon electrician knows, it will ground

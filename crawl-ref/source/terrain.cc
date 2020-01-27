@@ -1896,6 +1896,9 @@ void set_terrain_changed(const coord_def p)
 
     if (grd(p) == DNGN_SLIMY_WALL)
         env.level_state |= LSTATE_SLIMY_WALL;
+    else if (grd(p) == DNGN_ICY_WALL)
+        env.level_state |= LSTATE_ICY_WALL;
+
     else if (grd(p) == DNGN_OPEN_DOOR)
     {
         // Restore colour from door-change markers

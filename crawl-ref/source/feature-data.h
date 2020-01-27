@@ -107,6 +107,13 @@ static feature_def feat_defs[] =
 },
 
 {
+    DNGN_ICY_WALL, "ice covered rock wall", "icy_wall",
+    DCHAR_WALL, DCHAR_WALL_MAGIC,
+    COLOUR_IS(LIGHTCYAN),
+    FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
+},
+
+{
     DNGN_STONE_WALL, "stone wall", "stone_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTGREY),
