@@ -4392,7 +4392,7 @@ bool runrest::run_should_stop() const
     if (mon && !fedhas_passthrough(tcell.monsterinfo()))
         return true;
 
-    if (count_adjacent_slime_walls(targ))
+    if (count_adjacent_walls(targ, DNGN_SLIMY_WALL))
         return true;
 
     for (int i = 0; i < 3; i++)

@@ -834,19 +834,19 @@ bool slime_wall_neighbour(const coord_def& c)
     if (_slime_wall_precomputed_neighbour_mask)
         return (*_slime_wall_precomputed_neighbour_mask)(c);
 
-    // Not using count_adjacent_slime_walls because the early return might
-    // be relevant for performance here. TODO: profile it and find out.
+    // Not using count_adjacent_walls because the early return might be
+    // relevant for performance here. TODO: profile it and find out.
     for (adjacent_iterator ai(c); ai; ++ai)
         if (env.grid(*ai) == DNGN_SLIMY_WALL)
             return true;
     return false;
 }
 
-int count_adjacent_slime_walls(const coord_def &pos)
+int count_adjacent_walls(const coord_def &pos, dungeon_feature_type wall)
 {
     int count = 0;
     for (adjacent_iterator ai(pos); ai; ++ai)
-        if (env.grid(*ai) == DNGN_SLIMY_WALL)
+        if (env.grid(*ai) == wall)
             count++;
 
     return count;
@@ -859,7 +859,7 @@ void slime_wall_damage(actor* act, int delay)
     if (actor_slime_wall_immune(act))
         return;
 
-    const int walls = count_adjacent_slime_walls(act->pos());
+    const int walls = count_adjacent_walls(act->pos(), DNGN_SLIMY_WALL);
     if (!walls)
         return;
 

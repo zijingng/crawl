@@ -704,7 +704,7 @@ static void _start_running(int dir, int mode)
 
     if (!have_passive(passive_t::slime_wall_immune)
         && (dir == RDIR_REST || you.is_habitable_feat(grd(next_pos)))
-        && count_adjacent_slime_walls(next_pos))
+        && count_adjacent_walls(next_pos, DNGN_SLIMY_WALL))
     {
         mprf(MSGCH_WARN, "You're about to run into a slime covered wall!");
         return;
