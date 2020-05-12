@@ -42,7 +42,7 @@
 #include "tilepick.h"
 #endif
 #include "traps.h"
-
+#include "database.h"
 #define SPELL_HD_KEY "spell_hd"
 
 /// Simple 1:1 mappings between monster enchantments & info flags.
@@ -852,7 +852,7 @@ string monster_info::_core_name() const
     string s;
 
     if (is(MB_NAME_REPLACE))
-        s = mname;
+        s = getMonNameString(mname);
     else if (nametype == MONS_LERNAEAN_HYDRA)
         s = "Lernaean hydra"; // TODO: put this into mon-data.h
     else if (nametype == MONS_ROYAL_JELLY)
@@ -865,7 +865,7 @@ string monster_info::_core_name() const
     {
         const char* slime_sizes[] = {"buggy ", "", "large ", "very large ",
                                                "enormous ", "titanic "};
-        s = get_monster_data(nametype)->name;
+        s = getMonNameString(get_monster_data(nametype)->name);
 
         if (mons_is_draconian_job(type) && base_type != MONS_NO_MONSTER)
             s = draconian_colour_name(base_type) + " " + s;

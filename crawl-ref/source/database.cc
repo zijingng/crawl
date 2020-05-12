@@ -137,6 +137,10 @@ static TextDB AllDBs[] =
           { "hints.txt",    // hints mode
             "tutorial.txt", // tutorial mode
             }),
+
+    TextDB("monnames", "names/",
+          { "monname.txt",    // monster name
+            }),
 };
 
 static TextDB& DescriptionDB = AllDBs[0];
@@ -149,6 +153,7 @@ static TextDB& QuotesDB      = AllDBs[6];
 static TextDB& HelpDB        = AllDBs[7];
 static TextDB& FAQDB         = AllDBs[8];
 static TextDB& HintsDB       = AllDBs[9];
+static TextDB& MonNamesDB       = AllDBs[10];
 
 static string _db_cache_path(string db, const char *lang)
 {
@@ -884,4 +889,12 @@ string getMiscString(const string &misc, const string &suffix)
 string getHintString(const string &key)
 {
     return unwrap_desc(_query_database(HintsDB, key, true, true));
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Names DB specific functions.
+
+string getMonNameString(const string &key)
+{
+    return _query_database(MonNamesDB, key, true, true);
 }
