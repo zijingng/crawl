@@ -82,14 +82,14 @@ void debug_item_scan()
             // Check for invalid (zero quantity) items that are linked in.
             if (!mitm[obj].defined())
             {
-                debug_dump_item(mitm[obj].name(DESC_PLAIN).c_str(), obj, mitm[obj],
+                debug_dump_item(mitm[obj].name_en(DESC_PLAIN).c_str(), obj, mitm[obj],
                            "Linked invalid item at (%d,%d)!", ri->x, ri->y);
             }
 
             // Check that item knows what stack it's in.
             if (mitm[obj].pos != *ri)
             {
-                debug_dump_item(mitm[obj].name(DESC_PLAIN).c_str(), obj, mitm[obj],
+                debug_dump_item(mitm[obj].name_en(DESC_PLAIN).c_str(), obj, mitm[obj],
                            "Item position incorrect at (%d,%d)!", ri->x, ri->y);
             }
 
@@ -111,7 +111,7 @@ void debug_item_scan()
         if (!mitm[i].defined())
             continue;
 
-        strlcpy(name, mitm[i].name(DESC_PLAIN).c_str(), sizeof(name));
+        strlcpy(name, mitm[i].name_en(DESC_PLAIN).c_str(), sizeof(name));
 
         const monster* mon = mitm[i].holding_monster();
 
@@ -427,7 +427,7 @@ void debug_mons_scan()
             {
                 _announce_level_prob(warned);
                 warned = true;
-                debug_dump_item(item.name(DESC_PLAIN, false, true).c_str(),
+                debug_dump_item(item.name_en(DESC_PLAIN, false, true).c_str(),
                             idx, item,
                            "Monster %s (%d, %d) holding non-monster "
                            "item (midx = %d)",

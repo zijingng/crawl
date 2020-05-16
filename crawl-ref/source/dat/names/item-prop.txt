@@ -1,0 +1,549 @@
+%%%%
+removed 
+
+removed
+%%%%
+ dragon hide
+
+ dragon hide
+%%%%
+ dragon scales
+
+龙鳞甲
+%%%%
+ dragon scales
+
+龙鳞甲
+%%%%
+animal skin
+
+动物毛皮
+%%%%
+robe
+
+长袍
+%%%%
+leather armour
+
+皮甲
+%%%%
+ring mail
+
+锁环甲
+%%%%
+scale mail
+
+鳞甲
+%%%%
+chain mail
+
+链甲
+%%%%
+plate armour
+
+板甲
+%%%%
+crystal plate armour
+
+水晶板甲
+%%%%
+removed troll hide
+
+removed troll hide
+%%%%
+troll leather armour
+
+巨魔皮甲
+%%%%
+cloak
+
+披风
+%%%%
+scarf
+
+围巾
+%%%%
+gloves
+
+手套
+%%%%
+helmet
+
+头盔
+%%%%
+cap
+
+cap
+%%%%
+hat
+
+帽子
+%%%%
+boots
+
+靴子
+%%%%
+centaur barding
+
+半人马甲
+%%%%
+naga barding
+
+娜迦甲
+%%%%
+buckler
+
+小圆盾
+%%%%
+shield
+
+盾
+%%%%
+large shield
+
+大盾
+%%%%
+steam
+
+蒸汽
+%%%%
+acid
+
+酸液
+%%%%
+quicksilver
+
+水银
+%%%%
+swamp
+
+沼泽
+%%%%
+fire
+
+火焰
+%%%%
+ice
+
+寒冰
+%%%%
+pearl
+
+珍珠
+%%%%
+storm
+
+风暴
+%%%%
+shadow
+
+暗影
+%%%%
+gold
+
+黄金
+%%%%
+club
+
+棍棒
+%%%%
+spiked flail
+
+spiked flail
+%%%%
+whip
+
+鞭子
+%%%%
+hammer
+
+hammer
+%%%%
+mace
+
+矛锤
+%%%%
+flail
+
+连枷
+%%%%
+morningstar
+
+晨星锤
+%%%%
+demon whip
+
+恶魔鞭子
+%%%%
+sacred scourge
+
+神圣鞭子
+%%%%
+dire flail
+
+大连枷
+%%%%
+eveningstar
+
+昏星锤
+%%%%
+great mace
+
+大矛锤
+%%%%
+giant club
+
+巨大棍棒
+%%%%
+giant spiked club
+
+巨大狼牙棒
+%%%%
+dagger
+
+匕首
+%%%%
+quick blade
+
+快刀
+%%%%
+short sword
+
+短剑
+%%%%
+rapier
+
+西洋剑
+%%%%
+cutlass
+
+短弯刀
+%%%%
+falchion
+
+砍刀
+%%%%
+long sword
+
+长剑
+%%%%
+scimitar
+
+弯刀
+%%%%
+demon blade
+
+恶魔之刃
+%%%%
+eudemon blade
+
+神圣之刃
+%%%%
+double sword
+
+双重剑
+%%%%
+great sword
+
+大剑
+%%%%
+triple sword
+
+三重剑
+%%%%
+old falchion
+
+old falchion
+%%%%
+old long sword
+
+old long sword
+%%%%
+old scimitar
+
+old scimitar
+%%%%
+old double sword
+
+old double sword
+%%%%
+old great sword
+
+old great sword
+%%%%
+old triple sword
+
+old triple sword
+%%%%
+hand axe
+
+手斧
+%%%%
+war axe
+
+战斧
+%%%%
+broad axe
+
+阔斧
+%%%%
+battleaxe
+
+大战斧
+%%%%
+executioner's axe
+
+处决者之斧
+%%%%
+spear
+
+长矛
+%%%%
+trident
+
+三叉戟
+%%%%
+halberd
+
+长戟
+%%%%
+scythe
+
+镰刀
+%%%%
+demon trident
+
+恶魔三叉戟
+%%%%
+trishula
+
+神圣三叉戟
+%%%%
+glaive
+
+长柄刀
+%%%%
+bardiche
+
+长柄大刀
+%%%%
+staff
+
+法杖
+%%%%
+quarterstaff
+
+铁头木棒
+%%%%
+lajatang
+
+月牙铲
+%%%%
+blowgun
+
+吹箭
+%%%%
+hunting sling
+
+投石索
+%%%%
+fustibalus
+
+投石棒
+%%%%
+hand crossbow
+
+手弩
+%%%%
+arbalest
+
+钢弩
+%%%%
+triple crossbow
+
+三重弩
+%%%%
+shortbow
+
+短弓
+%%%%
+longbow
+
+长弓
+%%%%
+dart
+
+飞镖
+%%%%
+needle
+
+针
+%%%%
+stone
+
+石头
+%%%%
+arrow
+
+箭
+%%%%
+bolt
+
+矢
+%%%%
+large rock
+
+大石头
+%%%%
+sling bullet
+
+弹弓弹丸
+%%%%
+javelin
+
+标枪
+%%%%
+throwing net
+
+网
+%%%%
+boomerang
+
+回旋镖
+%%%%
+ration
+
+食物
+%%%%
+chunk
+
+肉块
+%%%%
+buggy pizza
+
+buggy pizza
+%%%%
+buggy jelly
+
+buggy jelly
+%%%%
+buggy ration
+
+buggy ration
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+buggy fruit
+
+buggy fruit
+%%%%
+The curse is absorbed by %s.
+
+%s吸收了诅咒。
+%%%%
+Your %s glows black for a moment.
+
+你的%s一瞬间发出了黑色的光。
+%%%%
+eggplant
+
+eggplant
+%%%%
+Bad food type %d (NUM_FOODS = %d)
+
+Bad food type %d (NUM_FOODS = %d)
+%%%%
+amulet
+
+护符
+%%%%
+ring
+
+戒指
+%%%%
+fan_debt
+
+fan_debt
+%%%%
+lamp_debt
+
+lamp_debt
+%%%%
+phial_debt
+
+phial_debt
+%%%%
+horn_debt
+
+horn_debt
+%%%%
+rod_debt
+
+rod_debt
+%%%%

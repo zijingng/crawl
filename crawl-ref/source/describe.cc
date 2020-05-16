@@ -1928,7 +1928,7 @@ string get_item_description(const item_def &item, bool verbose,
 
         if (need_base_desc)
         {
-            string db_name = item.name(DESC_DBNAME, true, false, false);
+            string db_name = item.name_en(DESC_DBNAME, true, false, false);
             string db_desc = getLongDescription(db_name);
 
             if (db_desc.empty())
@@ -2651,7 +2651,7 @@ bool describe_item(item_def &item, function<void (string&)> fixup_desc)
     if (is_unrandom_artefact(item) && item_type_known(item))
         quote = getQuoteString(get_artefact_name(item));
     else
-        quote = getQuoteString(item.name(DESC_DBNAME, true, false, false));
+        quote = getQuoteString(item.name_en(DESC_DBNAME, true, false, false));
 
     if (!(crawl_state.game_is_hints_tutorial()
           || quote.empty()))

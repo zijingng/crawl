@@ -6150,7 +6150,7 @@ static void tag_read_level_items(reader &th)
     {
         if (mitm[i].defined() && mitm[i].pos.origin())
         {
-            debug_dump_item(mitm[i].name(DESC_PLAIN).c_str(), i, mitm[i],
+            debug_dump_item(mitm[i].name_en(DESC_PLAIN).c_str(), i, mitm[i],
                                         "Fixing up unlinked temporary item:");
             mitm[i].clear();
         }

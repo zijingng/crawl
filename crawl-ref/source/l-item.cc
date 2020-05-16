@@ -327,7 +327,7 @@ static int l_item_do_subtype(lua_State *ls)
     else if (item_type_known(*item))
     {
         // must keep around the string until we call lua_pushstring
-        saved = sub_type_string(*item);
+        saved = sub_type_string_en(*item);
         s = saved.c_str();
     }
 
@@ -416,7 +416,7 @@ static string _item_name(lua_State *ls, item_def* item)
     else if (lua_isnumber(ls, 1))
         ndesc = static_cast<description_level_type>(luaL_safe_checkint(ls, 1));
     const bool terse = lua_toboolean(ls, 2);
-    return item->name(ndesc, terse);
+    return item->name_en(ndesc, terse);
 }
 
 static int l_item_do_name(lua_State *ls)
@@ -1157,7 +1157,7 @@ IDEF(sub_type)
 {
     ASSERT_DLUA;
 
-    lua_pushstring(ls, sub_type_string(*item).c_str());
+    lua_pushstring(ls, sub_type_string_en(*item).c_str());
     return 1;
 }
 

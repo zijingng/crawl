@@ -139,7 +139,13 @@ static TextDB AllDBs[] =
             }),
 
     TextDB("monnames", "names/",
-          { "monname.txt",    // monster name
+          { "mon-data.txt",    // monster name
+            }),
+    
+    TextDB("itemnames", "names/",
+          { "item-name.txt",    // item name
+            "art-data.txt",
+            "item-prop.txt",
             }),
 };
 
@@ -154,6 +160,7 @@ static TextDB& HelpDB        = AllDBs[7];
 static TextDB& FAQDB         = AllDBs[8];
 static TextDB& HintsDB       = AllDBs[9];
 static TextDB& MonNamesDB       = AllDBs[10];
+static TextDB& ItemNamesDB       = AllDBs[11];
 
 static string _db_cache_path(string db, const char *lang)
 {
@@ -896,5 +903,40 @@ string getHintString(const string &key)
 
 string getMonNameString(const string &key)
 {
-    return _query_database(MonNamesDB, key, true, true);
+    if (key == "") return "";
+
+    string tmp_key(key);
+
+    tmp_key = trim_string(tmp_key);
+    tmp_key = replace_all(tmp_key, "\n", "\\n");
+
+    string text = _query_database(MonNamesDB, tmp_key, true, true);
+
+    if (text == "") return key;
+    if (trimmed_string(text) == "__NONE") return "";
+
+    string chomped_text(text.begin(), text.end()-1);
+    return chomped_text;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Names DB specific functions.
+
+string getItemNameString(const string &key)
+{
+    if (key == "") return "";
+
+    string tmp_key(key);
+
+    tmp_key = trim_string(tmp_key);
+    tmp_key = replace_all(tmp_key, "\n", "\\n");
+
+    string text = _query_database(ItemNamesDB, tmp_key, true, true);
+
+    if (text == "") return key;
+    if (trimmed_string(text) == "__NONE") return "";
+
+    string chomped_text(text.begin(), text.end()-1);
+    if (chomped_text=="\\0") return "";
+    return chomped_text;
 }

@@ -1,0 +1,453 @@
+%%%%
+Singing Sword
+
+唱歌剑
+%%%%
+Wrath of Trog
+
+塔洛格之怒
+%%%%
+mace of Variability
+
+「变异」矛锤
+%%%%
+glaive of Prune
+
+梅干长柄刀
+%%%%
+sword of Power
+
+力量之剑
+%%%%
+staff of Olgreb
+
+奥格列伯之杖
+%%%%
+staff of Wucad Mu
+
+乌卡德·穆之杖
+%%%%
+Vampire's Tooth
+
+吸血鬼的牙
+%%%%
+scythe of Curses
+
+诅咒镰刀
+%%%%
+sceptre of Torment
+
+折磨权杖
+%%%%
+sword of Zonguldrok
+
+宗古多克之剑
+%%%%
+sword of Cerebov
+
+赛里保夫之剑
+%%%%
+staff of Dispater
+
+调度法杖
+%%%%
+sceptre of Asmodeus
+
+阿斯蒙蒂斯的权杖
+%%%%
+faerie dragon scales
+
+精灵龙的鳞
+%%%%
+"demon blade ""Bloodbane"""
+
+恶魔之刃「血仇」
+%%%%
+scimitar of Flaming Death
+
+烈焰死亡弯刀
+%%%%
+"eveningstar ""Brilliance"""
+
+「优秀」昏星锤
+%%%%
+"demon blade ""Leech"""
+
+恶魔之刃「血吸虫」
+%%%%
+dagger of Chilly Death
+
+冷酷死亡匕首
+%%%%
+"dagger ""Morg"""
+
+「莫尔格」匕首
+%%%%
+"scythe ""Finisher"""
+
+「终结者」镰刀
+%%%%
+"sling ""Punk"""
+
+「朋克」弹弓
+%%%%
+"longbow ""Zephyr"""
+
+长弓「西风」
+%%%%
+"giant club ""Skullcrusher"""
+
+「碎头」大棒
+%%%%
+glaive of the Guard
+
+卫兵的长柄刀
+%%%%
+zealot's sword
+
+狂热者的剑
+%%%%
+"arbalest ""Damnation"""
+
+「诅咒」钢弩
+%%%%
+sword of the Doom Knight
+
+毁灭骑士的巨剑
+%%%%
+"morningstar ""Eos"""
+
+「Eos」晨星锤
+%%%%
+spear of the Botono
+
+邦托诺的长矛
+%%%%
+trident of the Octopus King
+
+章鱼王的三叉戟
+%%%%
+"mithril axe ""Arga"""
+
+秘银战斧「阿尔加」
+%%%%
+Elemental Staff
+
+元素魔杖
+%%%%
+"heavy crossbow ""Sniper"""
+
+「狙击者」重弩
+%%%%
+"longbow ""Piercer"""
+
+「穿透者」长弓
+%%%%
+blowgun of the Assassin
+
+刺客吹箭
+%%%%
+"lance ""Wyrmbane"""
+
+「屠龙」长枪
+%%%%
+Spriggan's Knife
+
+树精的刀
+%%%%
+plutonium sword
+
+钚剑
+%%%%
+"great mace ""Undeadhunter"""
+
+「不死猎人」大矛锤
+%%%%
+"whip ""Snakebite"""
+
+「蛇咬」之鞭
+%%%%
+knife of Accuracy
+
+精准匕首
+%%%%
+Lehudib's crystal spear
+
+勒乎迪布的水晶矛
+%%%%
+captain's cutlass
+
+船长弯刀
+%%%%
+storm bow
+
+风暴弓
+%%%%
+large shield of Ignorance
+
+无知大盾
+%%%%
+robe of Augmentation
+
+扩充长袍
+%%%%
+cloak of the Thief
+
+小偷披风
+%%%%
+"large shield ""Bullseye"""
+
+「牛眼」大盾
+%%%%
+crown of Dyrovepreva
+
+迪罗夫普列瓦的王冠
+%%%%
+hat of the Bear Spirit
+
+「熊之精神」帽
+%%%%
+robe of Misfortune
+
+「灾祸」长袍
+%%%%
+cloak of Flash
+
+闪电披风
+%%%%
+boots of the Assassin
+
+刺客之靴
+%%%%
+Lear's hauberk
+
+莱尔的黄金链甲
+%%%%
+skin of Zhor
+
+卓尔的毛皮
+%%%%
+salamander hide armour
+
+沙罗曼蛇皮甲
+%%%%
+gauntlets of War
+
+「战争」铁手套
+%%%%
+shield of Resistance
+
+抗性之盾
+%%%%
+robe of Folly
+
+富丽长袍
+%%%%
+Maxwell's patent armour
+
+麦克斯韦的专利护甲
+%%%%
+mask of the Dragon
+
+龙的面具
+%%%%
+robe of Night
+
+夜之长袍
+%%%%
+scales of the Dragon King
+
+龙王的鳞甲
+%%%%
+hat of the Alchemist
+
+炼金术士之帽
+%%%%
+fencer's gloves
+
+剑士的手套
+%%%%
+cloak of Starlight
+
+星光披风
+%%%%
+ratskin cloak
+
+老鼠皮披风
+%%%%
+shield of the Gong
+
+铜锣盾
+%%%%
+amulet of the Air
+
+空气护身符
+%%%%
+ring of Shadows
+
+影之戒
+%%%%
+amulet of Cekugob
+
+瑟库果布的护身符
+%%%%
+amulet of the Four Winds
+
+「四面八方」护身符
+%%%%
+necklace of Bloodlust
+
+「血欲」项链
+%%%%
+ring of Phasing
+
+相位戒指
+%%%%
+ring of Robustness
+
+强健戒指
+%%%%
+ring of the Mage
+
+法师戒指
+%%%%
+brooch of Shielding
+
+守护胸针
+%%%%
+robe of Clouds
+
+云之长袍
+%%%%
+hat of Pondering
+
+思想之帽
+%%%%
+obsidian axe
+
+黑曜石战斧
+%%%%
+lightning scales
+
+闪电鳞甲
+%%%%
+Black Knight's horse barding
+
+黑骑士的马铠
+%%%%
+amulet of Vitality
+
+生命力护身符
+%%%%
+autumn katana
+
+秋之武士刀
+%%%%
+"shillelagh ""Devastator"""
+
+破坏者之棍
+%%%%
+dragonskin cloak
+
+龙皮披风
+%%%%
+ring of the Octopus King
+
+章鱼王的戒指
+%%%%
+Axe of Woe
+
+宿敌战斧
+%%%%
+moon troll leather armour
+
+月亮巨魔皮甲
+%%%%
+macabre finger necklace
+
+骇人的手指项链
+%%%%
+boots of the spider
+
+蜘蛛之靴
+%%%%
+dark maul
+
+暗黑重锤
+%%%%
+hat of the High Council
+
+hat of the High Council
+%%%%
+arc blade
+
+弯刀
+%%%%
+"demon whip ""Spellbinder"""
+
+恶魔鞭「破咒」
+%%%%
+lajatang of Order
+
+「守序」月牙铲
+%%%%
+"great mace ""Firestarter"""
+
+「烈焰」大矛锤
+%%%%
+orange crystal plate armour
+
+橙色水晶板甲
+%%%%
+Majin-Bo
+
+魔杖布欧
+%%%%
+"pair of quick blades ""Gyre"" and ""Gimble"""
+
+双刃「吉尔」和「金宝」
+%%%%
+Maxwell's etheric cage
+
+麦克斯韦的以太笼
+%%%%
+crown of Eternal Torment
+
+「永世折磨」之王冠
+%%%%
+robe of Vines
+
+藤条长袍
+%%%%
+Kryia's mail coat
+
+克里娅的铠甲
+%%%%
+"frozen axe ""Frostbite"""
+
+「寒噬」冰斧
+%%%%
+armour of Talos
+
+塔罗斯的盔甲
+%%%%
+warlock's mirror
+
+领主的镜子
+%%%%
+amulet of invisibility
+
+隐身护身符
+%%%%
+Maxwell's thermic engine
+
+麦克斯韦热能引擎
+%%%%
+"demon trident ""Rift"""
+
+「瑞夫特」恶魔三叉戟
+%%%%
+staff of Battle
+
+战斗之杖
+%%%%

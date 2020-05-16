@@ -156,6 +156,7 @@ const char *base_type_string(object_class_type type);
 const char *base_type_string(const item_def &item);
 
 string sub_type_string(const item_def &item, bool known = true);
+string sub_type_string_en(const item_def &item, bool known = true);
 
 string ego_type_string(const item_def &item, bool terse = false, brand_type override_brand = SPWPN_NORMAL);
 string ghost_brand_name(brand_type brand, monster_type mtype);
