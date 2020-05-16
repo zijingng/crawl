@@ -1479,6 +1479,13 @@ static string _curse_prefix(const item_def &weap, description_level_type desc,
 static string _plus_prefix(const item_def &weap)
 {
     if (is_unrandom_artefact(weap, UNRAND_WOE))
+        return getItemNameString("+∞ ");
+    return make_stringf(getItemNameString("%+d ").c_str(), weap.plus);
+}
+
+static string _plus_prefix_en(const item_def &weap)
+{
+    if (is_unrandom_artefact(weap, UNRAND_WOE))
         return "+∞ ";
     return make_stringf("%+d ", weap.plus);
 }
@@ -1578,7 +1585,7 @@ static string _name_weapon(const item_def &weap, description_level_type desc,
 
     const string curse_prefix
         = getItemNameString(_curse_prefix(weap, desc, terse, ident, ignore_flags));
-    const string plus_text = know_pluses ? getItemNameString(_plus_prefix(weap)) : "";
+    const string plus_text = know_pluses ? _plus_prefix(weap) : "";
 
     if (is_artefact(weap) && !dbname)
     {
@@ -1729,7 +1736,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
 
         // Don't list unenchantable armor as +0.
         if (know_pluses && armour_is_enchantable(*this))
-            buff << make_stringf("%+d ", plus);
+            buff << make_stringf(getItemNameString("%+d ").c_str(), plus);
 
         if (item_typ == ARM_GLOVES || item_typ == ARM_BOOTS)
             buff << getItemNameString("pair of ");
@@ -1818,19 +1825,19 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
         }
 
         if (know_type)
-            buff << _wand_type_name(item_typ) << "wand of ";
+            buff << getItemNameString(_wand_type_name(item_typ)) << getItemNameString("wand of ");
         else
         {
-            buff << wand_secondary_string(subtype_rnd / NDSC_WAND_PRI)
-                 << wand_primary_string(subtype_rnd % NDSC_WAND_PRI)
-                 << " wand";
+            buff << getItemNameString(wand_secondary_string(subtype_rnd / NDSC_WAND_PRI))
+                 << getItemNameString(wand_primary_string(subtype_rnd % NDSC_WAND_PRI))
+                 << getItemNameString(" wand");
         }
 
         if (dbname)
             break;
 
         if (know_type && charges > 0)
-            buff << " (" << charges << ")";
+            buff << "(" << charges << ")";
 
         break;
 
@@ -1952,7 +1959,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
         if (know_type)
         {
             if (know_pluses && jewellery_has_pluses(*this))
-                buff << make_stringf("%+d ", plus);
+                buff << make_stringf(getItemNameString("%+d ").c_str(), plus);
 
             buff << jewellery_type_name(item_typ);
         }
@@ -1960,14 +1967,14 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
         {
             if (jewellery_is_amulet(*this))
             {
-                buff << amulet_secondary_string(subtype_rnd / NDSC_JEWEL_PRI)
-                     << amulet_primary_string(subtype_rnd % NDSC_JEWEL_PRI)
+                buff << getItemNameString(amulet_secondary_string(subtype_rnd / NDSC_JEWEL_PRI))
+                     << getItemNameString(amulet_primary_string(subtype_rnd % NDSC_JEWEL_PRI))
                      << getItemNameString(" amulet");
             }
             else  // i.e., a ring
             {
-                buff << ring_secondary_string(subtype_rnd / NDSC_JEWEL_PRI)
-                     << ring_primary_string(subtype_rnd % NDSC_JEWEL_PRI)
+                buff << getItemNameString(ring_secondary_string(subtype_rnd / NDSC_JEWEL_PRI))
+                     << getItemNameString(ring_primary_string(subtype_rnd % NDSC_JEWEL_PRI))
                      << getItemNameString(" ring");
             }
         }
@@ -4073,7 +4080,7 @@ static string _name_weapon_en(const item_def &weap, description_level_type desc,
 
     const string curse_prefix
         = _curse_prefix(weap, desc, terse, ident, ignore_flags);
-    const string plus_text = know_pluses ? _plus_prefix(weap) : "";
+    const string plus_text = know_pluses ? _plus_prefix_en(weap) : "";
 
     if (is_artefact(weap) && !dbname)
     {
