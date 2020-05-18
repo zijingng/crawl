@@ -1516,7 +1516,7 @@ static string _cosmetic_text(const item_def &weap, iflags_t ignore_flags)
  * The ego-describing prefix to a weapon's name, including trailing space if
  * appropriate. (Empty if the weapon's brand shouldn't be prefixed.)
  */
-static string _ego_prefix(const item_def &weap, description_level_type desc,
+static string _ego_prefix_en(const item_def &weap, description_level_type desc,
                           bool terse, bool ident, iflags_t ignore_flags)
 {
     if (!_know_ego(weap, desc, ident, ignore_flags) || terse)
@@ -1540,11 +1540,49 @@ static string _ego_prefix(const item_def &weap, description_level_type desc,
     }
 }
 
+static string _ego_prefix(const item_def &weap, description_level_type desc,
+                          bool terse, bool ident, iflags_t ignore_flags)
+{
+    if (!_know_ego(weap, desc, ident, ignore_flags) || terse)
+        return "";
+
+    switch (get_weapon_brand(weap))
+    {
+        case SPWPN_VAMPIRISM:
+            return getItemNameString("vampiric ");
+        case SPWPN_ANTIMAGIC:
+            return getItemNameString("antimagic ");
+        case SPWPN_NORMAL:
+            if (!_know_pluses(weap, desc, ident, ignore_flags)
+                && get_equip_desc(weap))
+            {
+                return getItemNameString("enchanted ");
+            }
+            // fallthrough to default
+        default:
+            const string brand_name = getItemNameString(weapon_brand_name(weap, terse));
+            if (brand_name.empty())
+                return "";
+            return getItemNameString(brand_name);
+    }
+}
+
 /**
  * The ego-describing suffix to a weapon's name, May be empty. Does not include
  * trailing space.
  */
 static string _ego_suffix(const item_def &weap, bool terse)
+{
+    const string brand_name = getItemNameString(weapon_brand_name(weap, terse));
+    if (brand_name.empty())
+        return "";
+
+    if (terse)
+        return make_stringf(" (%s)", brand_name.c_str());
+    return ""; //return " of " + brand_name;
+}
+
+static string _ego_suffix_en(const item_def &weap, bool terse)
 {
     const string brand_name = weapon_brand_name(weap, terse);
     if (brand_name.empty())
@@ -1638,8 +1676,8 @@ static string _name_weapon(const item_def &weap, description_level_type desc,
     const string cosmetic_text
         = show_cosmetic ? getItemNameString(_cosmetic_text(weap, ignore_flags)) : "";
     const string ego_prefix
-        = getItemNameString(_ego_prefix(weap, desc, terse, ident, ignore_flags));
-    const string ego_suffix = know_ego ? getItemNameString(_ego_suffix(weap, terse)) : "";
+        = _ego_prefix(weap, desc, terse, ident, ignore_flags);
+    const string ego_suffix = know_ego ? _ego_suffix(weap, terse) : "";
     const string curse_suffix
         = know_curse && weap.cursed() && terse ? getItemNameString(" (curse)") :  "";
     return curse_prefix + plus_text + cosmetic_text + ego_prefix
@@ -1694,7 +1732,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
             if (props.exists(DAMNATION_BOLT_KEY)) // hack alert
                 buff << getItemNameString("damnation ");
             else //else if (_missile_brand_is_prefix(msl_brand)) // see below for postfix brands
-                buff << getItemNameString(missile_brand_name(*this, MBN_NAME)) << ' ';
+                buff << getItemNameString(missile_brand_name(*this, MBN_NAME));
         }
 
         buff << getItemNameString(ammo_name(static_cast<missile_type>(item_typ)));
@@ -4133,8 +4171,8 @@ static string _name_weapon_en(const item_def &weap, description_level_type desc,
     const string cosmetic_text
         = show_cosmetic ? _cosmetic_text(weap, ignore_flags) : "";
     const string ego_prefix
-        = _ego_prefix(weap, desc, terse, ident, ignore_flags);
-    const string ego_suffix = know_ego ? _ego_suffix(weap, terse) : "";
+        = _ego_prefix_en(weap, desc, terse, ident, ignore_flags);
+    const string ego_suffix = know_ego ? _ego_suffix_en(weap, terse) : "";
     const string curse_suffix
         = know_curse && weap.cursed() && terse ? " (curse)" :  "";
     return curse_prefix + plus_text + cosmetic_text + ego_prefix
