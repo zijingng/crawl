@@ -1,6 +1,6 @@
 <script>
   require.config({
-    paths: { "game-{{ version }}": "/gamedata/{{ version }}" }
+    paths: { "game-{{ version }}": "http://119.45.142.246:8080/gamedata/{{ version }}" }
   });
   require(['jquery', 'client'], function ($, client) {
     client.inhibit_messages();
@@ -12,8 +12,8 @@
     });
   });
 </script>
-<link rel="stylesheet" type="text/css" href="/gamedata/{{ version }}/style.css">
-<link rel="stylesheet" type="text/css" href="/gamedata/{{ version }}/simplebar.css">
+<link rel="stylesheet" type="text/css" href="http://119.45.142.246:8080/gamedata/{{ version }}/style.css">
+<link rel="stylesheet" type="text/css" href="http://119.45.142.246:8080/gamedata/{{ version }}/simplebar.css">
 
 <div id="crt" style="display: none;"></div>
 
@@ -350,11 +350,11 @@
 
 <!-- Tile images -->
 <div style="display: none;">
-  <img id="floor" src="/gamedata/{{ version }}/floor.png">
-  <img id="wall" src="/gamedata/{{ version }}/wall.png">
-  <img id="feat" src="/gamedata/{{ version }}/feat.png">
-  <img id="main" src="/gamedata/{{ version }}/main.png">
-  <img id="player" src="/gamedata/{{ version }}/player.png">
-  <img id="icons" src="/gamedata/{{ version }}/icons.png">
-  <img id="gui" src="/gamedata/{{ version }}/gui.png">
+  <img id="floor" src="http://119.45.142.246:8080/gamedata/{{ version }}/floor.png">
+  <img id="wall" src="http://119.45.142.246:8080/gamedata/{{ version }}/wall.png">
+  <img id="feat" src="http://119.45.142.246:8080/gamedata/{{ version }}/feat.png">
+  <img id="main" src="http://119.45.142.246:8080/gamedata/{{ version }}/main.png">
+  <img id="player" src="http://119.45.142.246:8080/gamedata/{{ version }}/player.png">
+  <img id="icons" src="http://119.45.142.246:8080/gamedata/{{ version }}/icons.png">
+  <img id="gui" src="http://119.45.142.246:8080/gamedata/{{ version }}/gui.png">
 </div>
